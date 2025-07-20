@@ -1,4 +1,4 @@
-FROM 3.9.11-eclipse-temurin-11-alpine AS builder
+FROM maven:3.9.11-eclipse-temurin-11-alpine AS builder
 WORKDIR /opt/server
 COPY pom.xml .
 COPY src /opt/server/src
@@ -6,7 +6,7 @@ RUN mvn clean package
 RUN mv /opt/server/target/shipping-1.0.jar /opt/server/shipping.jar
 
 
-FROM 3.9.11-eclipse-temurin-11-alpine
+FROM maven:3.9.11-eclipse-temurin-11-alpine
 RUN addgroup -S roboshop && adduser -S roboshop -G roboshop
 ENV CART_ENDPOINT="cart:8080" \
     DB_HOST="mysql"
