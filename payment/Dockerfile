@@ -3,6 +3,8 @@ WORKDIR /opt/server
 COPY requirements.txt .
 COPY *.py .
 COPY payment.ini .
+RUN apk add --no-cache build-base python3-dev linux-headers pcre-dev
+RUN apk add --no-cache uwsgi-python3
 RUN pip3 install -r requirements.txt
 
 
