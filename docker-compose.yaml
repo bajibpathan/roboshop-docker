@@ -2,7 +2,7 @@ networks:
   default:
     driver: bridge
     name: roboshop
-    external: true # if network is already created manually
+    # external: true # if network is already created manually
 volumes:
   mongodb:
   redis:
