@@ -3,6 +3,7 @@ WORKDIR /opt/server
 COPY requirements.txt .
 COPY *.py .
 COPY payment.ini .
+RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
 
