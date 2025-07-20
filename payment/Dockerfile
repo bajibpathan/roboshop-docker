@@ -1,13 +1,12 @@
-FROM python:3.9.23-alpine3.22 AS builder
+FROM python:3.9-alpine⁠ AS builder
 WORKDIR /opt/server
 COPY requirements.txt .
 COPY *.py .
 COPY payment.ini .
-RUN pip install --upgrade pip
 RUN pip3 install -r requirements.txt
 
 
-FROM python:3.9.23-alpine3.22
+FROM python:3.9-alpine
 RUN addgroup -S roboshop && adduser -S roboshop -G roboshop
 WORKDIR /opt/server
 USER roboshop
